@@ -39,9 +39,9 @@ Registered users can create, edit, and organize their wishes, while everyone can
 ![image](https://github.com/user-attachments/assets/2f68d268-2fa0-4718-8781-72bc03a7350c)
 
    - Display a grid/list of public wishes.
+![image](https://github.com/user-attachments/assets/9ef0b0f0-b975-492e-bc04-2947021b7e37)
    - Filters for tags and search functionality.
-   ![image](https://github.com/user-attachments/assets/e15e44c5-2991-4024-8592-d2117fdc3193)
-
+![image](https://github.com/user-attachments/assets/e15e44c5-2991-4024-8592-d2117fdc3193)
    - Top trending or most-liked wishes section.  
 ![image](https://github.com/user-attachments/assets/01a3048b-c489-408e-b9f9-fad71b414f6e)
 
