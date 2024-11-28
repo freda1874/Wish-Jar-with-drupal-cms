@@ -1,0 +1,131 @@
+<?php
+
+/**
+ * @file
+ * Install file for updates between versions.
+ */
+
+/**
+ * Updates services and settings configuration.
+ */
+function better_social_sharing_buttons_update_8001() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $services = $config->get('services');
+  if (!$services) {
+    $services = [
+      'facebook' => 'facebook',
+      'x' => 'x',
+      'linkedin' => 'linkedin',
+      'email' => 'email',
+    ];
+  }
+  else {
+    unset($services['googleplus']);
+    unset($services['delicious']);
+    $services['print'] = 0;
+  }
+  $config->set('services', $services);
+  $config->set('print_css', '');
+  $config->clear('height');
+  if (!$config->get('width')) {
+    $config->set('width', '20px');
+  }
+  if (!$config->get('radius')) {
+    $config->set('radius', '3px');
+  }
+
+  $config->save(TRUE);
+}
+
+/**
+ * Removes slashdot service configuration.
+ */
+function better_social_sharing_buttons_update_8002() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $config->clear('services.slashdot')->save();
+}
+
+/**
+ * Removes stumbleupon service configuration.
+ */
+function better_social_sharing_buttons_update_8003() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $config->clear('services.stumbleupon')->save();
+}
+
+/**
+ * Converts settings to schema conform format.
+ */
+function better_social_sharing_buttons_update_8004() {
+  // Updates the system configuration.
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $services = array_filter($config->get('services'));
+  $node_field = $config->get('node_field');
+  $config
+    ->set('services', $services)
+    ->set('node_field', (bool) $node_field)
+    ->save();
+
+  // Updates the block configuration.
+  $block_storage = \Drupal::service('entity_type.manager')->getStorage('block');
+  $blocks = $block_storage->loadByProperties(['plugin' => 'social_sharing_buttons_block']);
+  foreach ($blocks as $block) {
+    $config = $block->get('settings');
+    $config['services'] = array_filter($config['services']);
+    $block->set('settings', $config)->save();
+  }
+
+}
+
+/**
+ * Removes digg service configuration.
+ */
+function better_social_sharing_buttons_update_8005() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $config->clear('services.digg')->save();
+
+  // Updates the block configuration.
+  $block_storage = \Drupal::service('entity_type.manager')->getStorage('block');
+  $blocks = $block_storage->loadByProperties(['plugin' => 'social_sharing_buttons_block']);
+  foreach ($blocks as $block) {
+    $config = $block->get('settings');
+    $services = $config['services'];
+    unset($services['digg']);
+    $config['services'] = $services;
+    $block->set('settings', $config)->save();
+  }
+}
+
+/**
+ * Replaces twitter service with X.
+ */
+function better_social_sharing_buttons_update_8006() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('better_social_sharing_buttons.settings');
+  $services = $config->get('services');
+  if (isset($services['twitter'])) {
+    $config
+      ->clear('services.twitter')
+      ->set('services.x', 'x')
+      ->save();
+  }
+
+  // Updates the block configuration.
+  $block_storage = \Drupal::service('entity_type.manager')->getStorage('block');
+  $blocks = $block_storage->loadByProperties(['plugin' => 'social_sharing_buttons_block']);
+  foreach ($blocks as $block) {
+    $config = $block->get('settings');
+    $services = $config['services'];
+    if (in_array('twitter', $services)) {
+      unset($services['twitter']);
+      $services['x'] = 'x';
+      $config['services'] = $services;
+      $block->set('settings', $config)->save();
+    }
+  }
+}

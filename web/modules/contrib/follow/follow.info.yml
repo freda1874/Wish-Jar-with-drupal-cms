@@ -1,0 +1,11 @@
+name: 'Follow'
+type: module
+description: 'Add sitewide and per user links to social network profiles.'
+core_version_requirement: ^8.8 || ^9 || ^10
+package: 'Integrations'
+configure: follow.settings
+
+# Information added by Drupal.org packaging script on 2024-04-03
+version: '8.x-2.0'
+project: 'follow'
+datestamp: 1712137123

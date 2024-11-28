@@ -1,0 +1,21 @@
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'w-full',
+    'bg-[#BAD3AC]',  
+    'text-green-800',
+    'py-2',
+    'px-20',
+    'flex',
+    'flex-row',
+    'gap-14',
+    'items-center'
+   
+  ]
+%}
+{% if content %}
+	<div{{attributes.addClass(classes)}}>
+		{{ content }}
+	</div>
+{% endif %}

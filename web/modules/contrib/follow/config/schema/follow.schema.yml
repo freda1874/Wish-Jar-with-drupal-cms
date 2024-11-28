@@ -1,0 +1,13 @@
+follow.settings:
+  type: config_object
+  label: 'Follow settings'
+  mapping:
+    links:
+      type: sequence
+      label: 'Follow links'
+      sequence:
+        type: string
+        label: 'Follow link'
+    hide_labels:
+      type: boolean
+      label: 'Hide labels'

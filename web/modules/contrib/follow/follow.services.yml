@@ -1,0 +1,4 @@
+services:
+  follow.manager:
+    class: Drupal\follow\FollowManager
+    arguments: ['@user.data', '@config.factory']

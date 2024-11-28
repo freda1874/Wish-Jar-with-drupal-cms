@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @file
+ * Add template file for the social buttons.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines template files for the social sharing buttons module.
+ */
+function better_social_sharing_buttons_theme($existing, $type, $theme, $path) {
+  return [
+    'better_social_sharing_buttons' => [
+      'variables' => ['items' => ''],
+      'template' => 'better-social-sharing-buttons',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function better_social_sharing_buttons_entity_extra_field_info() {
+  if (\Drupal::config('better_social_sharing_buttons.settings')->get('node_field')) {
+    $extra = [];
+    foreach (NodeType::loadMultiple() as $bundle) {
+      $extra['node'][$bundle->Id()]['display']['sharing_buttons'] = [
+        'label' => t('Better Social Sharing Buttons'),
+        'description' => '',
+        'weight' => 100,
+        'visible' => TRUE,
+      ];
+    }
+
+    return $extra;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function better_social_sharing_buttons_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('sharing_buttons')) {
+    $config = \Drupal::config('better_social_sharing_buttons.settings');
+
+    $items = [];
+    global $base_url;
+
+    // It is impossible to generate canonical absolute URL for the entity
+    // without ID - it will trigger EntityMalformedException with the following
+    // message: "The entity cannot have a URI as it does not have an ID", so
+    // instead we use website base URL to render buttons during preview, as this
+    // is the only time when entity could be rendered without being saved and
+    // have an ID.
+    $items['page_url'] = $entity->id() ? $entity->toUrl('canonical', ['absolute' => TRUE]) : $base_url;
+    $items['description'] = '';
+    $items['title'] = $entity->get('title')->value;
+    $items['width'] = $config->get('width');
+    $items['radius'] = $config->get('radius');
+    $items['facebook_app_id'] = $config->get('facebook_app_id');
+    $items['print_css'] = $config->get('print_css');
+    $items['iconset'] = $config->get('iconset');
+    $items['services'] = $config->get('services');
+    $items['base_url'] = $base_url;
+
+    $build['sharing_buttons'] = [
+      '#theme' => 'better_social_sharing_buttons',
+      '#items' => $items,
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function better_social_sharing_buttons_preprocess_better_social_sharing_buttons(&$variables) {
+  if (isset($variables['items']['iconset'])) {
+    $icon_set = $variables['items']['iconset'];
+  }
+  else {
+    $icon_set = \Drupal::config('better_social_sharing_buttons.settings')->get('iconset');
+  }
+  $variables['social_buttons_sprite'] = Url::fromUri('internal:/' . \Drupal::service('extension.list.module')->getPath('better_social_sharing_buttons') . '/assets/dist/sprites/' . $icon_set . '.svg')->toString();
+}
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function better_social_sharing_buttons_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the better_social_sharing_buttons module.
+    case 'help.page.better_social_sharing_buttons':
+      $output = '<h2>' . t('Add social sharing buttons via twig (Twig Tweak module v2.0 or higher)') . '</h2>';
+      $output .= '<p>' . t('Twig Tweak version 2.0 and above can print blocks that are not instantiated by using the block id:') . '</p>';
+      $output .= '<p>' . t('*NOTE: This module was initially meant to be used on node detail pages because it gets the title and url for sharing from the current node.*') . '</p>';
+      $output .= '<p>' . t('*It is possible to add sharing buttons on teasers. A separate twig file was created for this so you can include this and pass the necessary parameters to it (title, url, description). On your teaser twig file, you can use this as follows:*') . '</p>';
+      $output .= '<code>' . "{# -- Social sharing buttons -- #}<br>
+{% set services = ['facebook', 'x', 'email', 'linkedin'] %}<br>
+{% include '/modules/contrib/better_social_sharing_buttons/templates/better-social-sharing-buttons.html.twig' with {<br>
+  'title': item.title,<br>
+  'url': item.url,<br>
+  'description': item.description|raw,<br>
+  'services': services<br>
+} %}" . '</code>';
+      $output .= '<p>' . t('*As you can see, this way you can set which fields of your node contain the necessary info and you can set the services you want displayed.*') . '</p>';
+
+      $output .= '<h2>' . t('Add social sharing buttons via a block') . '</h2>';
+      $output .= '<p>' . t('You can add a block via block place or layout builder and set independent configuration for those blocks.') . '</p>';
+
+      $output .= '<h2>' . t('Add social sharing buttons via a field') . '</h2>';
+      $output .= '<p>' . t('This module also provides a field (Better Social Sharing Buttons field) through a pseudo field. To see this field, you must enable the feature in the configuration and then adjust the display mode of your nodes. When the feature is enabled, the field is enabled for all content types. You will need to adjust it for each content type as desired.') . '</p>';
+
+      return $output;
+
+    default:
+  }
+}

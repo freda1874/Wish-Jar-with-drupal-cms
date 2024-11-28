@@ -1,0 +1,170 @@
+<?php
+
+/**
+ * @file
+ * Contains follow.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_help().
+ */
+function follow_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the follow module.
+    case 'help.page.follow':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Follow adds sitewide and per user links that link to various social networking sites.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function follow_config_schema_info_alter(&$definitions) {
+  if (isset($definitions['block_settings'])) {
+    $definitions['block_settings']['mapping']['size'] = [
+      'type' => 'string',
+    ];
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function follow_theme($existing, $type, $theme, $path) {
+  $themes = [];
+
+  $themes['follow_links'] = [
+    'variables' => [
+      'links' => [],
+    ],
+  ];
+
+  return $themes;
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function follow_entity_operation(EntityInterface $user) {
+  $operations = [];
+
+  if ('user' == $user->getEntityTypeId()) {
+    $current_user = \Drupal::currentUser();
+    $access = $current_user->hasPermission('edit any user follow links');
+
+    if (!$access) {
+      $access = $current_user->id() == $user->id() && $current_user->hasPermission('edit own follow links');
+    }
+
+    if ($access) {
+      $operations['follow'] = [
+        'title' => t('Follow links'),
+        'url' => Url::fromRoute('entity.user.follow', [
+          'user' => $user->id(),
+        ], [
+          'query' => [
+            'destination' => \Drupal::service('redirect.destination')->get(),
+          ],
+        ]),
+      ];
+    }
+  }
+
+  return $operations;
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function follow_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['user']['user']['display']['follow'] = [
+    'label' => t('Follow'),
+    'description' => t('Follow icons'),
+    'weight' => 50,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function follow_user_view(array &$build, UserInterface $user, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('follow') && \Drupal::currentUser()->hasPermission('view follow links')) {
+    /** @var \Drupal\follow\FollowManagerInterface $follow */
+    $follow = \Drupal::service('follow.manager');
+
+    $build['follow'] = $follow->getIcons($user);
+  }
+}
+
+/**
+ * Helper to get all follow links.
+ */
+function follow_get_follow_links($link = NULL) {
+  $base = [
+    'path' => \Drupal::service('extension.list.module')->getPath('follow') . '/icons',
+  ];
+
+  $options = [
+    'bliptv' => [
+      'label' => t('Blip.tv'),
+    ] + $base,
+    'delicious' => [
+      'label' => t('Delicious'),
+    ] + $base,
+    'facebook' => [
+      'label' => t('Facebook'),
+    ] + $base,
+    'feed' => [
+      'label' => t('Feed'),
+    ] + $base,
+    'flickr' => [
+      'label' => t('Flickr'),
+    ] + $base,
+    'lastfm' => [
+      'label' => t('Last.fm'),
+    ] + $base,
+    'linkedin' => [
+      'label' => t('LinkedIn'),
+    ] + $base,
+    'tumblr' => [
+      'label' => t('Tumblr'),
+    ] + $base,
+    'twitter' => [
+      'label' => t('Twitter'),
+    ] + $base,
+    'viadeo' => [
+      'label' => t('Viadeo'),
+    ] + $base,
+    'vimeo' => [
+      'label' => t('Vimeo'),
+    ] + $base,
+    'xing' => [
+      'label' => t('Xing'),
+    ] + $base,
+    'youtube' => [
+      'label' => t('YouTube'),
+    ] + $base,
+  ];
+
+  // Let other modules alter follow links.
+  \Drupal::moduleHandler()->alter('follow_links', $options);
+
+  if ($link) {
+    return !empty($options[$link]) ? $options[$link] : [];
+  }
+
+  return $options;
+}

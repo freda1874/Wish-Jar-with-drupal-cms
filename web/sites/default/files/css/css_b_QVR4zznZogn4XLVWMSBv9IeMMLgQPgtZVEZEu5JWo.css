@@ -1,0 +1,3 @@
+/* @license GPL-2.0-or-later https://www.drupal.org/licensing/faq */
+.js-flag-message{display:inline;margin-left:1.2em;animation:flag-flash 3s ease-in-out 1;}@keyframes flag-flash{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
+.flag a{border:none;}.flag a:hover{border:none;}

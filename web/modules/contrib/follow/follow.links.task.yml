@@ -1,0 +1,4 @@
+entity.user.follow:
+  title: 'Follow links'
+  route_name: entity.user.follow
+  base_route: entity.user.canonical

@@ -1,0 +1,23 @@
+name: drupal_wishThem
+type: theme
+"base theme": stable9
+version: 1.0.0
+libraries:
+  - drupal_wishThem/global-styling
+  - drupal_wishThem/base
+  - drupal_wishThem/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - drupal_wishThem/user
+  core/drupal.dropbutton:
+    - drupal_wishThem/dropbutton
+  core/drupal.dialog:
+    - drupal_wishThem/dialog
+  file/drupal.file:
+    - drupal_wishThem/file
+  core/drupal.progress:
+    - drupal_wishThem/progress
+description: ""
+core_version_requirement: ^10
+generator: "starterkit_theme:10.3.9"

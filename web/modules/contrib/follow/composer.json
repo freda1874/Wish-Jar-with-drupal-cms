@@ -1,0 +1,41 @@
+{
+  "name": "drupal/follow",
+  "description": "Follow adds sitewide and per user links that link to various social networking sites.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "keywords": ["Drupal"],
+  "homepage": "https://www.drupal.org/project/follow",
+  "authors": [
+    {
+      "name": "James Sansbury (q0rban)",
+      "homepage": "https://www.drupal.org/u/q0rban",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Naveen Valecha (naveenvalecha)",
+      "homepage": "https://www.drupal.org/u/naveenvalecha",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Rob Loach (RobLoach)",
+      "homepage": "https://www.drupal.org/u/robloach",
+      "role": "Maintainer"
+    },
+    {
+      "name": "John Bloomfield (jbloomfield)",
+      "homepage": "https://www.drupal.org/u/jbloomfield",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Viktor Holovachek (AstonVictor)",
+      "homepage": "https://www.drupal.org/u/astonvictor",
+      "role": "Maintainer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/follow",
+    "source": "https://git.drupalcode.org/project/follow"
+  },
+  "require": {  }
+}

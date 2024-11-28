@@ -1,0 +1,17 @@
+{#
+/**
+ * @file follow-links.html.twig
+ * Default theme implementation to the follow links.
+ *
+ * Available variables:
+ * - links: an array of follow links. Each link has a URL, label, and path to an icon.
+ */
+#}
+<div class="follow-links">
+  {% for link in links %}
+    <a href="{{ link.url }}" class="follow-link {{ link.key }}" target="_blank" style="display: block;margin: 10px 0;">
+      <img src="{{ link.src }}" alt="{{ link.label }}" style="float: left;" />
+      <span style="vertical-align: middle;margin-left: 10px;">{{ link.label }}</span>
+    </a>
+  {% endfor %}
+</div>

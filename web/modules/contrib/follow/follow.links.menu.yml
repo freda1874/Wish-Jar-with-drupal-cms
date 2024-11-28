@@ -1,0 +1,4 @@
+follow.settings:
+  title: 'Manage follow settings'
+  route_name: follow.settings
+  parent: user.admin_index

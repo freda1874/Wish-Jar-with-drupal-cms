@@ -1,0 +1,19 @@
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'bg-sky-200/50',
+    'px-4'
+  ]
+%}
+<div{{attributes.addClass(classes)}}>
+	{{ title_prefix }}
+	{% if label %}{% endif %}
+	{{ title_suffix }}
+
+	{% block content %}
+		<hr class="w-2/3 mx-auto shadow-sm shadow-slate-200/75"/>
+		{{ content }}
+	{% endblock %}
+</div>

@@ -1,0 +1,9 @@
+manage follow settings:
+  title: 'Manage follow settings'
+  description: 'Allows a user to manage follow settings.'
+edit own follow links:
+  title: 'Edit own follow links'
+edit any user follow links:
+  title: 'Edit any user follow links'
+view follow links:
+  title: 'View follow links'

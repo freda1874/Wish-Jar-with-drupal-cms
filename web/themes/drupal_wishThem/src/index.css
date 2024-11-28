@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Sora:wght@100..800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Luckiest+Guy&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Deca:wght@100..900&family=Luckiest+Guy&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Deca:wght@100..900&family=Luckiest+Guy&family=Quicksand:wght@300..700&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Faculty+Glyphic&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Deca:wght@100..900&family=Luckiest+Guy&family=Quicksand:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Sora:wght@100..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.views-view-responsive-grid__item {
+  border: 1px solid rgba(211, 211, 211, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(79, 128, 155);
+  padding: 5px;
+  font-size: large;
+}
+
+.engagenow {
+  color: rgb(79, 138, 79);
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 1px;
+  font-size: medium;
+}
+
+.engagenow:hover {
+  color: rgb(80, 72, 191);
+}
+
+.frontpageannounce {
+  font-size: small;
+  padding: 15px;
+  color: rgb(121, 121, 130);
+}
+
+.row-trend-post {
+  font-size: large;
+  padding: 5px;
+  border: 10px solid hsla(115, 13%, 81%, 0.542);
+  border-radius: 1px;
+}
+
+.trend-post-author {
+  color: dodgerblue;
+  padding-right: 5px;
+}
+
+.trend-post-author:hover,
+.trend-post-title:hover,
+.fresharticletag:hover,
+.fresharticletitle:hover {
+  color: rgb(80, 72, 191);
+}
+
+.trend-post-details {
+  color: darkgrey;
+  padding-right: 5px;
+}
+
+.trend-post-title {
+  color: rgb(9, 121, 233);
+  padding-right: 5px;
+  padding-left: 4px;
+  font-size: larger;
+}
+
+.trend-post-topic {
+  padding-right: 5px;
+  font-size: small;
+  border: 1px solid hsla(115, 13%, 81%, 0.542);
+  border-radius: 1px;
+  color: dodgerblue;
+}
+
+.front-page-thumbnail {
+  height: 25%;
+  width: 25%;
+  object-fit: cover;
+}
+
+.freshwishes {
+  padding-left: 15px;
+  color: rgb(40, 148, 121);
+  font-size: medium;
+  padding-bottom: 5px;
+}
+
+.fresharticletag {
+  color: dodgerblue;
+  font-size: small;
+  border: 1px solid hsla(115, 13%, 81%, 0.542);
+  padding: 2px;
+}
+
+.fresharticletitle {
+  padding-right: 5px;
+}
+
+.description {
+  font-size: 13px;
+  color: #373232;
+
+  max-width: 500px;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.form-submit {
+  background-color: white;
+  color: black;
+  border: 1px solid #555555;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.form-submit:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.flag-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.userprofilepic {
+  padding-bottom: 10px;
+}
+
+.flag-follow {
+  color: rgb(102, 108, 8);
+  background-color: bisque;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.contactuser {
+  color: rgb(102, 108, 8);
+  cursor: pointer;
+}
+
+.views-field-edit-user {
+  color: #555555;
+  cursor: pointer;
+  font-size: small;
+}
+
+.userprofilenamesectionrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.profile-content-main {
+  display: flex;
+  flex-direction: column;
+
+  margin-right: 15px;
+}
+.profile-content-row {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+
+.profilecontenttag {
+  color: rgb(62, 62, 61);
+  background-color: rgb(188, 222, 245);
+  font-size: small;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  max-width: max-content;
+}
+
+.profile-content-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: large;
+}

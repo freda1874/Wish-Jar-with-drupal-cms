@@ -1,0 +1,128 @@
+better_social_sharing_buttons.settings:
+  type: config_object
+  label: 'Better Social Sharing Buttons settings'
+  mapping:
+    iconset:
+      type: string
+      label: 'The iconset'
+    services:
+      type: mapping
+      label: 'Sharing buttons'
+      mapping:
+        facebook:
+          type: string
+          label: 'Facebook'
+        x:
+          type: string
+          label: 'x'
+        whatsapp:
+          type: string
+          label: 'WhatsApp'
+        facebook_messenger:
+          type: string
+          label: 'Facebook Messenger'
+        email:
+          type: string
+          label: 'Email'
+        pinterest:
+          type: string
+          label: 'Pinterest'
+        linkedin:
+          type: string
+          label: 'LinkedIn'
+        xing:
+          type: string
+          label: 'Xing'
+        tumblr:
+          type: string
+          label: 'Tumblr'
+        reddit:
+          type: string
+          label: 'Reddit'
+        evernote:
+          type: string
+          label: 'Evernote'
+        print:
+          type: string
+          label: 'Print'
+        copy:
+          type: string
+          label: 'Copy current page url to clipboard'
+    width:
+      type: string
+      label: 'Icon size'
+    radius:
+      type: string
+      label: 'Border radius'
+    print_css:
+      type: string
+      label: 'Print css file'
+    facebook_app_id:
+      type: string
+      label: 'Facebook App ID'
+    node_field:
+      type: boolean
+      label: Enable field for nodes'
+
+block.settings.social_sharing_buttons_block:
+  type: block_settings
+  label: 'Better Social Sharing Buttons settings'
+  mapping:
+    iconset:
+      type: string
+      label: 'The iconset'
+    services:
+      type: mapping
+      label: 'Sharing buttons'
+      mapping:
+        facebook:
+          type: string
+          label: 'Facebook'
+        x:
+          type: string
+          label: 'x'
+        whatsapp:
+          type: string
+          label: 'WhatsApp'
+        facebook_messenger:
+          type: string
+          label: 'Facebook Messenger'
+        email:
+          type: string
+          label: 'Email'
+        pinterest:
+          type: string
+          label: 'Pinterest'
+        linkedin:
+          type: string
+          label: 'LinkedIn'
+        xing:
+          type: string
+          label: 'xing'
+        tumblr:
+          type: string
+          label: 'Tumblr'
+        reddit:
+          type: string
+          label: 'Reddit'
+        evernote:
+          type: string
+          label: 'Evernote'
+        print:
+          type: string
+          label: 'Print'
+        copy:
+          type: string
+          label: 'Copy current page url to clipboard'
+    width:
+      type: string
+      label: 'Icon size'
+    radius:
+      type: string
+      label: 'Border radius'
+    print_css:
+      type: string
+      label: 'Print css file'
+    facebook_app_id:
+      type: string
+      label: 'Facebook App ID'

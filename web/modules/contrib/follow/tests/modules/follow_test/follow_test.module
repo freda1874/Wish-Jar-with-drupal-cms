@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains follow_test.module.
+ */
+
+/**
+ * Implements hook_follow_links_alter().
+ */
+function follow_test_follow_links_alter(array &$links) {
+  $links['custom'] = [
+    'label' => t('Test Link'),
+    'path' => \Drupal::service('extension.list.module')->getPath('follow') . '/icons',
+  ];
+}

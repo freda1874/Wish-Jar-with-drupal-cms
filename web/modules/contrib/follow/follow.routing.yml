@@ -1,0 +1,19 @@
+follow.settings:
+  path: '/admin/config/people/follow'
+  defaults:
+    _form: '\Drupal\follow\Form\FollowSettingForm'
+    _title: 'Manage follow settings'
+  requirements:
+    _permission: 'manage follow settings'
+entity.user.follow:
+  path: '/user/{user}/follow'
+  defaults:
+    _form: '\Drupal\follow\Form\FollowUserForm'
+    _title: 'Follow links'
+  requirements:
+    _custom_access: '\Drupal\follow\Form\FollowUserForm::access'
+  options:
+    _admin_route: TRUE
+    parameters:
+      user:
+        type: entity:user
