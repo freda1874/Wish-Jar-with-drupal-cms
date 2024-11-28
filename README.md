@@ -2,11 +2,12 @@
 **WishJar** is a platform where users can document, share, and explore wishes to inspire and connect with others. 
 Whether it’s climbing a mountain, starting a business, or learning a new skill, this website provides a space to turn aspirations into inspirations.
 
+
 ### **Basic Site Settings**
 
 | **Setting**      | **Details**                             |
 |-------------------|-----------------------------------------|
-| **Logo**          | ![Untitled design (1)](https://github.com/user-attachments/assets/c090425f-118c-4e1d-9a38-1eba194b68de) |
+| **Logo**          |![Weixin Screenshot_20241121233007](https://github.com/user-attachments/assets/67767544-baaa-4668-92df-bd62918f6c20) |
 | **Slogan**        | *"Every Wish Deserves a Place"*         |
 | **Theme Colors**  | Soft blues and greens to evoke calm and inspiration. |
 
@@ -25,18 +26,30 @@ Whether it’s climbing a mountain, starting a business, or learning a new skill
 ## **Pages and Features**
 
 
- 
-
 ### **Page Structure**
 #### Frontpage (Home Page)
 **Wish Tag Board**: Displays main taxonomy of wishes. <br> - **Trending Wishes**: Wishes with high votes and comments. <br> - **New Wishes**: Newly published wishes. 
+
 
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **Wish Tag Board**      |![wishtag](https://github.com/user-attachments/assets/b8c49a16-4401-436f-b752-07fdba9a9517) |
 | **Trending Wishes** |![front-bottom](https://github.com/user-attachments/assets/931b29a0-aaad-4c6b-9f56-12708233018c) |
 | **New Wishes** | ![newwished](https://github.com/user-attachments/assets/76495f7f-79aa-466a-8e3b-56f515498029)|
+
+---
+
+#### My Account Page (`/user/*`)
+Public profile page with a personal profile card (user picture, follow button, self-intro). <br> - Editable only by the user. 
+
+| **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **full page**      | ![user](https://github.com/user-attachments/assets/bc460179-3a75-4cdb-a2ad-39035a81c394)|
+| **Public profile** | ![sectionprofile](https://github.com/user-attachments/assets/8c887588-56bb-4671-91e0-2313a3bf1b88) |
  
+ 
+
+
 ---
 #### Frontpage (Home Page)
 | **Page**                      | **Details**                                                                                           |
