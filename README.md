@@ -20,6 +20,8 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
 ---
 
 ## **User Roles and Permissions**
+![wishtag](https://github.com/user-attachments/assets/3e54840e-8318-49bc-84df-03c9858a9ed1)
+
 
 | **Role**             | **Capabilities**                                                                                  |
 |-----------------------|--------------------------------------------------------------------------------------------------|
