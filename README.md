@@ -2,6 +2,12 @@
 **WishJar** is a platform where users can document, share, and explore wishes to inspire and connect with others. 
 Whether it’s climbing a mountain, starting a business, or learning a new skill, this website provides a space to turn aspirations into inspirations.
 
+This app was designed using Drupal as part of my journey to explore rupal development. I think Drupal offers more customization compared to WordPress.
+The project is containerized using DDEV and Docker, providing a more efficient, portable development environment. I leveraged key Drupal features, including:
+- Blocks and Views: To create flexible content displays.
+- CSS and Twig: For custom styling and theming.I also integrated tailwindcss with twig.
+- Flags: To implement functionality like "Follow User." 
+- User Relationships: To manage interactions between users.
 
 ### **Basic Site Settings**
 
