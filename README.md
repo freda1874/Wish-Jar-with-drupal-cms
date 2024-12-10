@@ -1,77 +1,115 @@
-# WishJar
+# WishJar: A Drupal-Based Wish-Sharing Platform
+**WishJar** is a platform where users can document, share, and explore wishes to inspire and connect with others. 
+Whether it’s climbing a mountain, starting a business, or learning a new skill, this website provides a space to turn aspirations into inspirations.
 
-#### **Website Name**: **WishJar**  
-#### **Slogan**: **" Every Wish Deserves a Place"**  
-#### **Brief Intro**:  
-Whether it’s climbing a mountain, starting a business, or simply learning a new skill, users can write and share their wishes to inspire and connect with others. 
-Registered users can create, edit, and organize their wishes, while everyone can explore the gallery of dreams to spark their own ambitions.  
+This app was designed using Drupal as part of my journey to explore rupal development. I think Drupal offers more customization compared to WordPress.
+The project is containerized using DDEV and Docker, providing a more efficient, portable development environment. I leveraged key Drupal features, including:
+- Blocks and Views: To create flexible content displays.
+- CSS and Twig: For custom styling and theming.I also integrated tailwindcss with twig.
+- Flags: To implement functionality like "Follow User." 
+- User Relationships: To manage interactions between users.
 
----
+### **Basic Site Settings**
 
-### **Website Features**
-#### **User Roles**  
-1. **Normal User**:  
-   - Can view wishes posted by registered users.  
-   - Cannot create or modify wishes.  
-
-2. **Registered User**:  
-   - Can write new wishes with titles, tags, body text, and images.  
-   - Can edit or delete their own wishes.  
-   - Can like, save, comment, or share wishes.
-
-3. **Admin User**:  
-   - Can delete wishes.
-   - Can not write new wishes or edit wished   
+| **Setting**      | **Details**                             |
+|-------------------|-----------------------------------------|
+| **Logo**          |![Weixin Screenshot_20241121233007](https://github.com/user-attachments/assets/67767544-baaa-4668-92df-bd62918f6c20) |
+| **Slogan**        | *"Every Wish Deserves a Place"*         |
+| **Theme Colors**  | Soft blues and greens to evoke calm and inspiration. |
 
 ---
 
-#### **Wish Details**  
-- **Title**: A short, catchy phrase summarizing the wish.  
-- **Body**: A detailed description of the wish.  
-- **Tags**: Categories (e.g., Travel, Personal Growth, Career, Adventure).  
-- **Images**: Users can attach pictures to make wishes visually appealing.  
-- **Actions**: Save, like, comment, and share functionalities.  
+## **User Roles and Permissions**
+![wishtag](https://github.com/user-attachments/assets/3e54840e-8318-49bc-84df-03c9858a9ed1)
+
+
+| **Role**             | **Capabilities**                                                                                  |
+|-----------------------|--------------------------------------------------------------------------------------------------|
+| **Unregistered Visitor** | - View wishes posted by registered users. <br> - Cannot create or modify wishes.               |
+| **Registered User**   | - Write new wishes (title, tags, body text, images). <br> - Edit or delete their own wishes. <br> - Like, save, comment, or share wishes. <br> - Follow authors to display their posts on the Following Wish List (`/inspiration-jar`). |
+| **Admin User**        | - Delete wishes. <br> - Censor wishes or manage new users. <br> - Cannot write or edit wishes.   |
 
 ---
 
-#### **UI Features**  
-1. **Homepage**
-![image](https://github.com/user-attachments/assets/2f68d268-2fa0-4718-8781-72bc03a7350c)
+## **Pages and Features**
 
-   - Display a grid/list of public wishes.
-![image](https://github.com/user-attachments/assets/9ef0b0f0-b975-492e-bc04-2947021b7e37)
-   - Filters for tags and search functionality.
-   - Top trending or most-liked wishes section.  
-![image](https://github.com/user-attachments/assets/e15e44c5-2991-4024-8592-d2117fdc3193)
+
+
+### **Page Structure**
+#### Frontpage (Home Page)
+**Wish Tag Board**: Displays main taxonomy of wishes. <br> - **Trending Wishes**: Wishes with high votes and comments. <br> - **New Wishes**: Newly published wishes. 
+
+| **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **full page**      |![full](https://github.com/user-attachments/assets/7a571cfe-bfd3-422a-acdc-fc2ce6b0b0c5)|
+| **Wish Tag Board**      |![wishtag](https://github.com/user-attachments/assets/b8c49a16-4401-436f-b752-07fdba9a9517) |
+| **Trending Wishes** |![front-bottom](https://github.com/user-attachments/assets/931b29a0-aaad-4c6b-9f56-12708233018c) |
+| **New Wishes** | ![newwished](https://github.com/user-attachments/assets/76495f7f-79aa-466a-8e3b-56f515498029)|
+
+---
+
+#### My Account Page (`/user/*`)
+- Public profile page with a personal profile card (user picture, follow button, self-intro). <br> - Editable only by the user. 
+
+| **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **full page**      | ![user](https://github.com/user-attachments/assets/bc460179-3a75-4cdb-a2ad-39035a81c394)|
+| **Public profile** | ![sectionprofile](https://github.com/user-attachments/assets/8c887588-56bb-4671-91e0-2313a3bf1b88) |
+
+ ---
+#### Following Wish List (`/inspiration-jar`)
+- Displays wishes from authors the logged-in user follows. <br> - For anonymous visitors, shows trending wishes only.
+
+#### Wish Detail Page** (In Progress)
+- Displays individual wish details, including interactions like likes, comments, and shares.
+
+#### Tag Display Page(Planned) 
+- Displays posts related to a specific tag. 
+
+####  Additional Pages 
+ Define and develop remaining pages as needed.
+
+---
+
+## **Instructions: Set Up the Project with DDEV on Windows**
+
+### **Prerequisites**
+1. Install [DDEV](https://ddev.readthedocs.io/en/stable/).
+2. Install Docker Desktop.
+
+---
+
+### **Steps to Clone and Set Up the Project**
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+   ```
+
+2. **Set Up DDEV**:
+   - Run the following command in the project folder:
+     ```bash
+     ddev config --project-type=drupal --docroot=web --php-version=8.1 
+     ```
+   - Start the DDEV environment:
+     ```bash
+     ddev start
+     ```
+
+3. **Install Drupal**:
+   - Access the DDEV environment:
+     ```bash
+     ddev ssh
+     ```
+   - Install Drupal using Drush:
+     ```bash
+     drush site:install --account-name=admin --account-pass=admin
+     ```
+
+4. **Access the Site**:
+   - Open your browser and navigate to:
+     ```
+     https://<project-name>.ddev.site
+     ```
  
-theme color
-![image](https://github.com/user-attachments/assets/38784f67-9d94-42d7-9114-51cf83e19958)
-
-2. **Profile Page for Registered Users**  
-   - Personal dashboard to manage wishes.  
-   - Saved wishes and activity history.  
-![image](https://github.com/user-attachments/assets/4dc5e22c-1b41-4077-81aa-705f67a131fe)
-
-3. **Wish Page**  
-   - Full-page view of a wish, including title, body, tags, and pictures.  
-   - Actions: Save, like, comment, and share.  
-![image](https://github.com/user-attachments/assets/8d49d023-0695-49e6-917f-4f08fd627d0f)
-
-4. **Registration/Login**  
-   - Secure user authentication for writing/modifying wishes.  
-5. user content page
- ![image](https://github.com/user-attachments/assets/d0a964d8-f380-4ef5-a675-d12302f2c73e)
-
----
-
-### **Development Checklist**
-| Feature/Task                     | Status  |
-|-----------------------------------|---------|
-| Create user roles (normal/registered) | ☐       |
-| Implement write/edit functionality for registered users | ☐ |
-| Add tags for wish categorization  | ☐       |
-| Allow images to be uploaded with wishes | ☐ |
-| Add save, like, comment, and share buttons | ☐ |
-| Design a responsive UI for wish pages | ☐       |
-| Implement filters and search functionality | ☐ |
-| Set up user registration and login system | ☐       |
