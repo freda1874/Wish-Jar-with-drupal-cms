@@ -67,7 +67,7 @@
  */
 #}
 {% if threaded %}
-  {{ attach_library('drupal_wishThem/indented') }}
+	{{ attach_library('drupal_wishThem/indented') }}
 {% endif %}
 {%
   set classes = [
@@ -76,40 +76,40 @@
     status != 'published' ? status,
     comment.owner.anonymous ? 'by-anonymous',
     author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
+    'border-solid', 'border-b-2', 'border-grey-200/60','py-2'
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
-  {#
-    Hide the "new" indicator by default, let a piece of JavaScript ask the
-    server which comments are new for the user. Rendering the final "new"
-    indicator here would break the render cache.
-  #}
-  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+<article{{attributes.addClass(classes)}}>
+	{#
+														    Hide the "new" indicator by default, let a piece of JavaScript ask the
+														    server which comments are new for the user. Rendering the final "new"
+														    indicator here would break the render cache.
+														  #}
+	<mark class="hidden " data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
-  {% if submitted %}
-    <footer class="comment__meta">
-      {{ user_picture }}
-      <p class="comment__submitted">{{ submitted }}</p>
+	{% if submitted %}
+		<footer class="comment__meta">
+			{{ user_picture }}
+			<p class="comment__submitted text-sm text-gray-500">{{ submitted }}</p>
 
-      {#
-        Indicate the semantic relationship between parent and child comments for
-        accessibility. The list is difficult to navigate in a screen reader
-        without this information.
-      #}
-      {% if parent %}
-        <p class="parent visually-hidden">{{ parent }}</p>
-      {% endif %}
+			{#
+																																										        Indicate the semantic relationship between parent and child comments for
+																																										        accessibility. The list is difficult to navigate in a screen reader
+																																										        without this information.
+																																										      #}
+			{% if parent %}
+				<p class="parent visually-hidden">{{ parent }}</p>
+			{% endif %}
 
-      {{ permalink }}
-    </footer>
-  {% endif %}
 
-  <div{{ content_attributes.addClass('content') }}>
-    {% if title %}
-      {{ title_prefix }}
-      <h3{{ title_attributes }}>{{ title }}</h3>
-      {{ title_suffix }}
-    {% endif %}
-    {{ content }}
-  </div>
+		</footer>
+	{% endif %}
+
+	<div{{content_attributes.addClass('content')}}>
+		{% if title %}
+			{{ title_prefix }}
+			{{ title_suffix }}
+		{% endif %}
+		{{ content }}
+	</div>
 </article>

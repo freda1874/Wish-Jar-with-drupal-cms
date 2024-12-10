@@ -1,0 +1,56 @@
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+    'flex',
+    'flex-row',
+    'gap-3',
+    'justify-end',
+    'text-sm'
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{# color: rgb(102, 108, 8);
+  background-color: bisque;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: small; #}
+
+{% if label_hidden %}
+	{% if multiple %}
+		<div{{attributes.addClass(classes,'field__items')}}>
+			{% for item in items %}
+				<div{{item.attributes.addClass('field__item','bg-yellow-600/40','p-1')}}>{{ item.content }}</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		{% for item in items %}
+			<div{{attributes.addClass(classes,'field__item')}}>{{ item.content }}</div>
+		{% endfor %}
+	{% endif %}
+{% else %}
+	<div{{attributes.addClass(classes)}}>
+		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
+		{% if multiple %}
+			<div class="field__items">
+			{% endif %}
+			{% for item in items %}
+				<div{{item.attributes.addClass('field__item','bg-yellow-600/40')}}>{{ item.content }}</div>
+			{% endfor %}
+			{% if multiple %}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
