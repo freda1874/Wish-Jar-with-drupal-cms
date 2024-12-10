@@ -57,6 +57,7 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
 | **Public profile** | ![sectionprofile](https://github.com/user-attachments/assets/8c887588-56bb-4671-91e0-2313a3bf1b88) |
 
 - Users can follow and unfollow other users easily.
+
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **follow flag**      |![image](https://github.com/user-attachments/assets/98b5257a-55d0-4d1b-8a65-e9b96c7cf427)|
@@ -65,12 +66,14 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
  ---
 #### Following Wish List (`/inspiration-jar`)
 - Displays wishes from authors the logged-in user follows. <br> - For anonymous visitors, shows trending wishes only.
+
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **full page**      | ![follow](https://github.com/user-attachments/assets/464b6a85-ab3f-4134-8363-7b720eb72bb9)| 
 
 #### Wish Detail Page** (In Progress)
 - Users can share articles on social media. <br> - Users can vote and comment on articles.
+
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **full page**      |![image](https://github.com/user-attachments/assets/99db85b4-0dee-4d42-b647-16cb6e6b3a00)                          | 
