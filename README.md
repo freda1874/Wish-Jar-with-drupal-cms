@@ -57,7 +57,7 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
 | **Public profile** | ![sectionprofile](https://github.com/user-attachments/assets/8c887588-56bb-4671-91e0-2313a3bf1b88) |
 
 - Users can follow and unfollow other users easily.
- | **Page**                      | **Details**                                                                                           |
+| **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **follow flag**      |![image](https://github.com/user-attachments/assets/98b5257a-55d0-4d1b-8a65-e9b96c7cf427)|
 | **unfollow flag** |![image](https://github.com/user-attachments/assets/1c8f83be-e2c6-44b9-8a66-ee73263e8175)|
@@ -73,7 +73,7 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
 - Users can share articles on social media. <br> - Users can vote and comment on articles.
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
-| **full page**      |![image](https://github.com/user-attachments/assets/99db85b4-0dee-4d42-b647-16cb6e6b3a00)| 
+| **full page**      |![image](https://github.com/user-attachments/assets/99db85b4-0dee-4d42-b647-16cb6e6b3a00)                          | 
 
 
 ### To Be Completed
