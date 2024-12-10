@@ -49,23 +49,39 @@ The project is containerized using DDEV and Docker, providing a more efficient, 
 ---
 
 #### My Account Page (`/user/*`)
-- Public profile page with a personal profile card (user picture, follow button, self-intro). <br> - Editable only by the user. 
+- Public profile page with a personal profile card (user picture, follow button, self-intro). <br> - Editable only by the user. <br> - Displays all articles published by the user.
 
 | **Page**                      | **Details**                                                                                           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
 | **full page**      | ![user](https://github.com/user-attachments/assets/bc460179-3a75-4cdb-a2ad-39035a81c394)|
 | **Public profile** | ![sectionprofile](https://github.com/user-attachments/assets/8c887588-56bb-4671-91e0-2313a3bf1b88) |
 
+- Users can follow and unfollow other users easily.
+ | **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **follow flag**      |![image](https://github.com/user-attachments/assets/98b5257a-55d0-4d1b-8a65-e9b96c7cf427)|
+| **unfollow flag** |![image](https://github.com/user-attachments/assets/1c8f83be-e2c6-44b9-8a66-ee73263e8175)|
+
  ---
 #### Following Wish List (`/inspiration-jar`)
 - Displays wishes from authors the logged-in user follows. <br> - For anonymous visitors, shows trending wishes only.
+| **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **full page**      | ![follow](https://github.com/user-attachments/assets/464b6a85-ab3f-4134-8363-7b720eb72bb9)| 
 
 #### Wish Detail Page** (In Progress)
-- Displays individual wish details, including interactions like likes, comments, and shares.
+- Users can share articles on social media. <br> - Users can vote and comment on articles.
+| **Page**                      | **Details**                                                                                           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **full page**      |![image](https://github.com/user-attachments/assets/99db85b4-0dee-4d42-b647-16cb6e6b3a00)| 
 
+
+### To Be Completed
+
+#### Responsive Design
+Ensure the site is fully responsive for mobile devices.
 #### Tag Display Page(Planned) 
 - Displays posts related to a specific tag. 
-
 ####  Additional Pages 
  Define and develop remaining pages as needed.
 
